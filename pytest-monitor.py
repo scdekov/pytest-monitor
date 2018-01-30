@@ -17,7 +17,7 @@ def extract_result_mark(result):
 
 
 def build_title(success, project_name):
-    return 'TESTS %s %s at %s' % (project_name,
+    return '%s TESTS %s at %s' % (project_name,
                                   'SUCCESS' if success else 'FAIL',
                                   str(datetime.now().strftime("%H:%M")))
 
