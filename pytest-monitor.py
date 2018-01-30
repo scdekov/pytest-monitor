@@ -1,4 +1,6 @@
 #!/usr/bin/python
+import os
+import sys
 import subprocess
 from datetime import datetime
 
@@ -14,16 +16,27 @@ def extract_result_mark(result):
     return last_line[:last_line.index('in')]
 
 
-def notify(success, output):
-    title = 'TESTS %s at %s' % ('SUCCESS' if success else 'FAIL', datetime.now().time())
-    subprocess.call(['notify-send', title, out])
+def build_title(success, project_name):
+    return 'TESTS %s %s at %s' % (project_name,
+                                  'SUCCESS' if success else 'FAIL',
+                                  str(datetime.now().strftime("%H:%M")))
 
 
-last_result_id = None
-while True:
-    out, success = run_tests()
-    result_id = extract_result_mark(out)
+def notify(success, output, project_name):
+    subprocess.call(['notify-send', build_title(success, project_name), output])
 
-    if last_result_id != result_id:
-        notify(success, out)
-        last_result_id = result_id
+
+def run(project_name):
+    last_result_id = None
+    while True:
+        out, success = run_tests()
+        result_id = extract_result_mark(out)
+
+        if last_result_id != result_id:
+            notify(success, out, project_name)
+            last_result_id = result_id
+
+
+if __name__ == '__main__':
+    project_name = len(sys.argv) > 1 and sys.argv[1] or os.getcwd()
+    run(project_name)
