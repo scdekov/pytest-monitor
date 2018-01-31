@@ -8,4 +8,4 @@ Run your tests on every save of project file and sends you notification if there
 
 ## Usage
 
-Run `$ pytest-monitor` in your project directory
+Run `$ pytest-monitor [project-name]` in your project directory
