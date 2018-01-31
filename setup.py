@@ -40,7 +40,7 @@ def get_package_data(package):
     return {package: filepaths}
 
 
-version = get_version('pytest_monitor')
+version = get_version('pytest-monitor')
 
 
 setup(
