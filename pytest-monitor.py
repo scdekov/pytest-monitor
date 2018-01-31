@@ -37,11 +37,12 @@ class RunTestsHandler(RegexMatchingEventHandler):
         return last_line[:last_line.index('in')]
 
     def _notify(self, success, output):
+        icon = "notification-power-disconnected" if not success else "notification-network-wireless-full"
         title = '%s TESTS %s at %s' % (self.project_name,
                                        'SUCCESS' if success else 'FAIL',
                                        str(datetime.now().strftime("%H:%M")))
 
-        notify2.Notification(title, output).show()
+        notify2.Notification(title, output, icon).show()
 
 
 if __name__ == '__main__':
