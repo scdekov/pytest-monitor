@@ -40,7 +40,7 @@ def get_package_data(package):
     return {package: filepaths}
 
 
-version = get_version('pytest-monitor')
+version = get_version('pytest_monitor')
 
 
 setup(
@@ -48,15 +48,15 @@ setup(
     version=version,
     url='https://git@github.com/scdekov/pytest-monitor.git',
     description='Run pytest on project file modification and notify you.',
-    packages=get_packages('pyetst-monitor'),
-    package_data=get_package_data('pyetst-monitor'),
+    packages=get_packages('pytest_monitor'),
+    package_data=get_package_data('pytest_monitor'),
     install_requires=[
         'notify2==0.3.1',
         'watchdog==0.8.3'
     ],
     entry_points={
         'console_scripts': [
-            'pytest-monitor = pytest-monitor.pytest-monitor:main'
+            'pytest-monitor = pytest_monitor.pytest_monitor:main'
         ]
     },
 )
