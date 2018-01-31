@@ -45,7 +45,7 @@ class RunTestsHandler(RegexMatchingEventHandler):
         notify2.Notification(title, output, icon).show()
 
 
-if __name__ == '__main__':
+def main():
     path = os.getcwd()
     project_name = len(sys.argv) > 1 and sys.argv[1] or path
     notify2.init(project_name)
@@ -62,3 +62,7 @@ if __name__ == '__main__':
         observer.stop()
 
     observer.join()
+
+
+if __name__ == '__main__':
+    main()
