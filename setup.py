@@ -52,7 +52,9 @@ setup(
     package_data=get_package_data('pytest_monitor'),
     install_requires=[
         'notify2==0.3.1',
-        'watchdog==0.8.3'
+        'watchdog==0.8.3',
+        'dbus-python==1.2.4',
+        'pytest>=2.0.0,<=3.0.0'
     ],
     entry_points={
         'console_scripts': [
