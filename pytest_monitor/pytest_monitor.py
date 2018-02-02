@@ -43,7 +43,9 @@ class RunTestsHandler(RegexMatchingEventHandler):
                                        'SUCCESS' if success else 'FAIL',
                                        str(datetime.now().strftime("%H:%M")))
 
-        notify2.Notification(title, last_line, icon).show()
+        notification = notify2.Notification(title, last_line, icon)
+        notification.set_urgency(notification.URGENCY_CRITICAL)
+        notification.show()
 
 
 def main():
