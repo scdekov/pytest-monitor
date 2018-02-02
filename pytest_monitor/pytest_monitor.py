@@ -44,7 +44,7 @@ class RunTestsHandler(RegexMatchingEventHandler):
                                        str(datetime.now().strftime("%H:%M")))
 
         notification = notify2.Notification(title, last_line, icon)
-        notification.set_urgency(notification.URGENCY_CRITICAL)
+        notification.set_urgency(notify2.URGENCY_CRITICAL)
         notification.show()
 
 
